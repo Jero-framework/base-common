@@ -1,6 +1,6 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
-import com.jero.commom.bean.FileDirBean;
+import com.jero.common.bean.FileDirBean;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.Zip64Mode;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;

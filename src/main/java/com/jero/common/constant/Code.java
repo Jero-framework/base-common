@@ -1,4 +1,4 @@
-package com.jero.commom.constant;
+package com.jero.common.constant;
 
 /**
  * Code码

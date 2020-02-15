@@ -1,6 +1,6 @@
-package com.jero.commom.excel;
+package com.jero.common.excel;
 
-import com.jero.commom.exception.SheetNotFindException;
+import com.jero.common.exception.SheetNotFindException;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;

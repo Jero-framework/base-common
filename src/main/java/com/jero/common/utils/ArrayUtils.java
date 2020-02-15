@@ -1,4 +1,4 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
 import org.apache.commons.collections.CollectionUtils;
 

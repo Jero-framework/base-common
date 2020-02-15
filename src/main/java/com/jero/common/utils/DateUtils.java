@@ -1,6 +1,6 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
-import com.jero.commom.exception.DateNotFindException;
+import com.jero.common.exception.DateNotFindException;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;

@@ -1,4 +1,4 @@
-package com.jero.commom.bean;
+package com.jero.common.bean;
 
 /**
  * 描述文件名和文件父类的bean

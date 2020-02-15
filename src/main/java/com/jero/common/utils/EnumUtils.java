@@ -1,4 +1,4 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
 /**
  * 枚举操作工具类

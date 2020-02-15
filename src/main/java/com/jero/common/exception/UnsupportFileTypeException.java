@@ -1,4 +1,4 @@
-package com.jero.commom.exception;
+package com.jero.common.exception;
 
 /**
  * 不支持的文件类型异常

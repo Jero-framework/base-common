@@ -1,6 +1,6 @@
-package com.jero.commom.exception;
+package com.jero.common.exception;
 
-import com.jero.commom.constant.Code;
+import com.jero.common.constant.Code;
 
 public class JeroBaseException extends RuntimeException {
 

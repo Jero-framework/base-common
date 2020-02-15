@@ -1,14 +1,16 @@
-package com.jero.commom.exception;
+package com.jero.common.exception;
 
 /**
+ * Excel中表单不存在异常
+ *
  * @author zer0
  * @version 1.0
  */
-public class DateNotFindException extends RuntimeException{
+public class SheetNotFindException extends RuntimeException{
 
     private String error;
 
-    public DateNotFindException(String error){
+    public SheetNotFindException(String error){
         this.error = error;
     }
 
@@ -19,4 +21,5 @@ public class DateNotFindException extends RuntimeException{
     public void setError(String error) {
         this.error = error;
     }
+
 }

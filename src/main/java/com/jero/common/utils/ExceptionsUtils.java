@@ -1,4 +1,4 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

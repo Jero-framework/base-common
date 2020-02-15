@@ -1,4 +1,4 @@
-package com.jero.commom.utils;
+package com.jero.common.utils;
 
 import java.util.ArrayList;
 import java.util.List;
