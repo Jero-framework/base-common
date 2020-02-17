@@ -27,58 +27,7 @@ public class StringUtilsTest {
     public void after() throws Exception {
     }
 
-    @Test
-    public void testRandomNum() throws Exception {
-        String result = StringUtils.randomNum(0);
-        assertEquals(6, result.length());
 
-        String result2 = StringUtils.randomNum(3);
-        assertEquals(3, result2.length());
-    }
-
-    @Test
-    public void testRandom() throws Exception {
-        String result = StringUtils.random(0);
-        assertEquals(6, result.length());
-
-        String result2 = StringUtils.random(8);
-        assertEquals(8, result2.length());
-    }
-
-    @Test
-    public void testRandomLower() throws Exception {
-        Pattern pattern = Pattern.compile("^[0-9a-z]+$");
-
-        String result = StringUtils.randomLower(0);
-        Matcher m1 = pattern.matcher(result);
-        assertEquals(6, result.length());
-        assertTrue(m1.matches());
-
-        String result2 = StringUtils.randomLower(9);
-        Matcher m2 = pattern.matcher(result2);
-        assertEquals(9, result2.length());
-        assertTrue(m2.matches());
-    }
-
-    @Test
-    public void testRandomUpper() throws Exception {
-        Pattern pattern = Pattern.compile("^[0-9A-Z]+$");
-
-        String result = StringUtils.randomUpper(0);
-        Matcher m1 = pattern.matcher(result);
-        assertEquals(6, result.length());
-        assertTrue(m1.matches());
-
-        String result2 = StringUtils.randomUpper(9);
-        Matcher m2 = pattern.matcher(result2);
-        assertEquals(9, result2.length());
-        assertTrue(m2.matches());
-
-        String result3 = StringUtils.randomUpper(-1);
-        Matcher m3 = pattern.matcher(result3);
-        assertEquals(6, result3.length());
-        assertTrue(m3.matches());
-    }
 
     @Test
     public void testIsNumber() throws Exception {

@@ -14,48 +14,6 @@ import java.util.regex.Pattern;
 public class StringUtils extends org.apache.commons.lang3.StringUtils{
 
     /**
-     * 从0~9中随机选择 bit 位生成字符串
-     * @param bit 所生成字符串长度，默认6位
-     * @return 数字随机组成的字符串
-     */
-    public static String randomNum(int bit){
-        if (bit <= 0){
-            bit = 6;
-        }
-        return RandomStringUtils.randomNumeric(bit);
-    }
-
-    /**
-     * 从0~9、a~z、A~Z中随机选择 bit 位生成字符串
-     * @param bit 所生成字符串长度，默认6位
-     * @return 数字、字母随机组成的字符串
-     */
-    public static String random(int bit){
-        if (bit <= 0){
-            bit = 6;
-        }
-        return RandomStringUtils.random(bit, true, true);
-    }
-
-    /**
-     * 从0~9、a~z中随机选择 bit 为生成字符串
-     * @param bit 所生成字符串长度，默认6位
-     * @return 数字、小写字母随机组成的字符串
-     */
-    public static String randomLower(int bit){
-        return lowerCase(random(bit));
-    }
-
-    /**
-     * 从0~9、A~Z中随机选择 bit 为生成字符串
-     * @param bit 所生成字符串长度，默认6位
-     * @return 数字、大写字母随机组成的字符串
-     */
-    public static String randomUpper(int bit){
-        return upperCase(random(bit));
-    }
-
-    /**
      * 判断字符串是否为数字表示
      * @param str 判断的字符串
      * @return 为数字返回true，不为数字返回false
