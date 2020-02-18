@@ -41,6 +41,13 @@ public class ConvertUtilsTest {
     }
 
     @Test
+    public void testFormatStrFromDateByPattern() throws Exception{
+        assertEquals("2017-08-02 11:22:33", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DATETIME_PATTERN));
+        assertEquals("2017-08-02", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DAY_PATTERN));
+        assertEquals("2017-08-02 11:22:33.000", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DATETIME_MS_PATTERN));
+    }
+
+    @Test
     public void testStrToDateStr() throws Exception {
         assertEquals(date, ConvertUtils.strToDate("2017-08-02 11:22:33"));
     }

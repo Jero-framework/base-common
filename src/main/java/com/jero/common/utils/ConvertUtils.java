@@ -12,7 +12,14 @@ import java.util.Date;
  * @author zer0
  * @version 1.0
  */
-public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils{
+public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
+
+    /**
+     * Patterns
+     */
+    public static final String DAY_PATTERN = "yyyy-MM-dd";
+    public static final String DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public static final String DATETIME_MS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
 
     /**
      * 日期（年月日）转换为字符串
@@ -20,11 +27,7 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils{
      * @return 转换后的日期字符串
      */
     public static String formatStrFromDate(Date date){
-        if (date == null){
-            throw new DateNotFindException("时间参数不存在");
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(date);
+        return formatStrFromDateByPattern(date, DAY_PATTERN);
     }
 
     /**
@@ -33,10 +36,24 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils{
      * @return
      */
     public static String formatStrFromTime(Date date) {
+        return formatStrFromDateByPattern(date, DATETIME_PATTERN);
+    }
+
+    /**
+     * 日期（年月日时分秒）转换为字符串
+     * @param date
+     * @return
+     */
+    public static String formatStrFromDateByPattern(Date date, String pattern) {
         if (date == null) {
             throw new DateNotFindException("时间参数不存在");
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        if (pattern == null){
+            pattern = DATETIME_PATTERN;
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
 
@@ -59,9 +76,11 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils{
      */
     public static Date strToDate(String str, String pattern) throws ParseException{
         if (pattern == null){
-            pattern = "yyyy-MM-dd hh:mm:ss";
+            pattern = DATETIME_PATTERN;
         }
         return DateUtils.parseDate(str, pattern);
     }
+
+
 
 }
