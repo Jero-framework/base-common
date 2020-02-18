@@ -81,6 +81,4 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
         return DateUtils.parseDate(str, pattern);
     }
 
-
-
 }
