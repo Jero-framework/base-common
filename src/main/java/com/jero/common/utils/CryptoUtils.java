@@ -61,9 +61,9 @@ public class CryptoUtils {
      */
     public static String encryptByAES(String content,String password) {
         try {
-            KeyGenerator kgen = getAesCipher();// 创建AES的Key生产者
+            KeyGenerator kgen = KeyGenerator.getInstance("AES");// 创建AES的Key生产者
             kgen.init(128, new SecureRandom(password.getBytes()));// 利用用户密码作为随机数初始化出
-            SecretKey secretKey = getSecretKey(kgen);// 根据用户密码，生成一个密钥
+            SecretKey secretKey = kgen.generateKey();// 根据用户密码，生成一个密钥
             byte[] enCodeFormat = secretKey.getEncoded();// 返回基本编码格式的密钥，如果此密钥不支持编码，则返回null。
             SecretKeySpec key = new SecretKeySpec(enCodeFormat, "AES");// 转换为AES专用密钥
             Cipher cipher = Cipher.getInstance("AES");// 创建密码器
@@ -85,14 +85,6 @@ public class CryptoUtils {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private static KeyGenerator getAesCipher() throws NoSuchAlgorithmException {
-        return KeyGenerator.getInstance("AES");
-    }
-
-    private static SecretKey getSecretKey(KeyGenerator kgen) {
-        return kgen.generateKey();
     }
 
     /**
