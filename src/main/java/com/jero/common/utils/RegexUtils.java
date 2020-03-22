@@ -104,6 +104,10 @@ public class RegexUtils {
      */
     public static final String REGEX_NEGATIVE_FLOAT       = "^-[1-9]\\d*\\.\\d*|-0\\.\\d*[1-9]\\d*$";
 
+    private RegexUtils() {
+        throw new IllegalStateException("RegexUtils Utility class");
+    }
+
     /**
      * 验证手机号（简单）
      *

@@ -21,6 +21,10 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
     public static final String DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String DATETIME_MS_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
 
+    private ConvertUtils() {
+        throw new IllegalStateException("ConvertUtils Utility class");
+    }
+
     /**
      * 日期（年月日）转换为字符串
      * @param date

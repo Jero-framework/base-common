@@ -21,6 +21,10 @@ public class EncodeUtils {
 
     private static final String DEFAULT_URL_ENCODING = "UTF-8";
 
+    private EncodeUtils() {
+        throw new IllegalStateException("EncodeUtils Utility class");
+    }
+
     /**
      * Hex编码.
      */

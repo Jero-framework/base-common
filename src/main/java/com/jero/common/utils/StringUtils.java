@@ -13,6 +13,10 @@ import java.util.regex.Pattern;
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils{
 
+    private StringUtils() {
+        throw new IllegalStateException("StringUtils Utility class");
+    }
+
     /**
      * 判断字符串是否为数字表示
      * @param str 判断的字符串

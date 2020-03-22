@@ -14,6 +14,10 @@ import java.util.List;
  */
 public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
+    private ArrayUtils() {
+        throw new IllegalStateException("ArrayUtils Utility class");
+    }
+
     /**
      * 列表转字符串，"逗号"分隔
      * @param stringList 转string的列表

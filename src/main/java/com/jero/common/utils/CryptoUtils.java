@@ -29,6 +29,10 @@ public class CryptoUtils {
     public static final String PUBLIC_KEY = "RSAPublicKey";// 公钥
     public static final String PRIVATE_KEY = "RSAPrivateKey";// 私钥
 
+    private CryptoUtils() {
+        throw new IllegalStateException("CryptoUtils Utility class");
+    }
+
     /**
      * MD5加密
      * @param data 待加密数据

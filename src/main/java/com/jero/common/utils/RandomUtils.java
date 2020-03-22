@@ -12,6 +12,10 @@ import java.util.*;
  */
 public class RandomUtils {
 
+    private RandomUtils() {
+        throw new IllegalStateException("RandomUtils Utility class");
+    }
+
     /**
      * 从0~9中随机选择 bit 位生成字符串
      * @param bit 所生成字符串长度，默认6位

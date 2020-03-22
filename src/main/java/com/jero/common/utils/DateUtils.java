@@ -17,6 +17,10 @@ import java.util.Locale;
  */
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils{
 
+    private DateUtils() {
+        throw new IllegalStateException("DateUtils Utility class");
+    }
+
     /**
      * 计算两个日期的时间差（年）
      * @param date1

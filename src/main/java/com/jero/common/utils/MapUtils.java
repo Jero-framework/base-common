@@ -6,4 +6,9 @@ package com.jero.common.utils;
  * @Date 2020/3/22
  **/
 public class MapUtils extends org.apache.commons.collections.MapUtils {
+
+    private MapUtils() {
+        throw new IllegalStateException("MapUtils Utility class");
+    }
+
 }

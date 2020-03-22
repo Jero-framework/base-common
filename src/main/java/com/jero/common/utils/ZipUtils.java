@@ -20,6 +20,10 @@ import java.util.List;
  */
 public class ZipUtils {
 
+    private ZipUtils() {
+        throw new IllegalStateException("ZipUtils Utility class");
+    }
+
     /**
      * 压缩多个文件
      * @param files 要压缩的文件列表

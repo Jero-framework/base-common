@@ -8,6 +8,10 @@ import java.io.StringWriter;
  */
 public class ExceptionsUtils {
 
+    private ExceptionsUtils() {
+        throw new IllegalStateException("ExceptionsUtils Utility class");
+    }
+
     /**
      * 将CheckedException转换为UncheckedException.
      */

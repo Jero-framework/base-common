@@ -36,7 +36,7 @@ public class HttpUtils {
     private static final String JSON_RESPONSE_IS_NULL = "jsonResponse is null";
 
     private HttpUtils() {
-        throw new IllegalStateException("Utility class, HttpUtil");
+        throw new IllegalStateException("HttpUtils Utility class");
     }
 
     public static String post(String baseUrl, Map<String, Object> paramMap) {

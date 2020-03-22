@@ -8,4 +8,8 @@ package com.jero.common.utils;
  */
 public class EnumUtils extends org.apache.commons.lang3.EnumUtils{
 
+    private EnumUtils() {
+        throw new IllegalStateException("EnumUtils Utility class");
+    }
+
 }

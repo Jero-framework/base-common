@@ -10,6 +10,10 @@ import java.io.*;
  */
 public class FileUtils {
 
+    private FileUtils() {
+        throw new IllegalStateException("FileUtils Utility class");
+    }
+
     /**
      * 获取文件扩展名
      * @param fileName 文件名
