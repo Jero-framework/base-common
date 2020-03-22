@@ -42,6 +42,13 @@ public class EncodeUtils {
     /**
      * Base64编码.
      */
+    public static String encodeBase64(String input) throws UnsupportedEncodingException {
+        return Base64.encodeBase64String(input.getBytes("UTF-8"));
+    }
+
+    /**
+     * Base64编码.
+     */
     public static String encodeBase64(byte[] input) {
         return Base64.encodeBase64String(input);
     }
@@ -58,6 +65,13 @@ public class EncodeUtils {
      */
     public static byte[] decodeBase64(String input) {
         return Base64.decodeBase64(input);
+    }
+
+    /**
+     * Base64解码.
+     */
+    public static String decodeBase64toString(String input) {
+        return new String(Base64.decodeBase64(input));
     }
 
     /**
