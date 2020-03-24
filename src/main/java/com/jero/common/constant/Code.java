@@ -8,7 +8,8 @@ package com.jero.common.constant;
  */
 public class Code {
 
-    public static Code ERROR = new Code(0, "系统错误");
+    public static Code ERROR = new Code(-1, "系统错误");
+    public static Code VALID_ERROR = new Code(0, "校验异常");
     public static Code SUCCESS = new Code(1, "操作成功");
     public static Code ILLEGAL_TOKEN = new Code(1001, "不合法的凭证");
     public static Code ILLEGAL_FILE_TYPE = new Code(1002, "不合法的文件类型");
