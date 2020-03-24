@@ -85,6 +85,39 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
         return res;
     }
 
+    /**
+     * 判断字符串是否为邮箱
+     * @param str 判断的字符串
+     * @return boolean
+     */
+    public static boolean isEmail(String str){
+        boolean res = false;
+        if (str != null && str.length() > 0){
+            Pattern pattern = Pattern.compile("^[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?$");
+            Matcher m = pattern.matcher(str);
+            if (m.find()){
+                res = true;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 判断字符串是否为电话号码
+     * @param str 判断的字符串
+     * @return boolean
+     */
+    public static boolean isPhone(String str){
+        boolean res = false;
+        if (str != null && str.length() > 0){
+            Pattern pattern = Pattern.compile("^[1][3,4,5,7,8][0-9]{9}$");
+            Matcher m = pattern.matcher(str);
+            if (m.find()){
+                res = true;
+            }
+        }
+        return res;
+    }
 
 
 }
