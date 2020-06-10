@@ -4,6 +4,9 @@ import com.jero.common.exception.DateNotFindException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -62,6 +65,55 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
     }
 
     /**
+     * 日期（年月日）转换为字符串
+     * @param date
+     * @return
+     */
+    public static String formatStrFromLocalDate(LocalDate date) {
+        return formatStrFromLocalDateByPattern(date, null);
+    }
+
+    /**
+     * 日期（年月日）转换为字符串
+     * @param date
+     * @return
+     */
+    public static String formatStrFromLocalDateByPattern(LocalDate date, String pattern) {
+        if (date == null) {
+            throw new DateNotFindException("时间参数不存在");
+        }
+
+        if (pattern == null){
+            pattern = DAY_PATTERN;
+        }
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern);
+        return df.format(date);
+    }
+
+    public static String formatStrFromLocalDateTime(LocalDateTime date) {
+        return formatStrFromLocalDateTimeByPattern(date, null);
+    }
+
+    /**
+     * 日期（年月日时分秒）转换为字符串
+     * @param date
+     * @return
+     */
+    public static String formatStrFromLocalDateTimeByPattern(LocalDateTime date, String pattern) {
+        if (date == null) {
+            throw new DateNotFindException("时间参数不存在");
+        }
+
+        if (pattern == null){
+            pattern = DATETIME_PATTERN;
+        }
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern);
+        return df.format(date);
+    }
+
+    /**
      * 字符串转换为时间
      * @param str
      * @return 转换后的日期
@@ -69,6 +121,16 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
      */
     public static Date strToDate(String str) throws ParseException{
         return strToDate(str, null);
+    }
+
+    /**
+     * 字符串转换为java8的LocalDateTime
+     * @param str
+     * @return 转换后的日期
+     * @throws ParseException
+     */
+    public static LocalDateTime strToLocalDateTime(String str) throws ParseException{
+        return strToLocalDateTime(str, null);
     }
 
     /**
@@ -83,6 +145,40 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
             pattern = DATETIME_PATTERN;
         }
         return DateUtils.parseDate(str, pattern);
+    }
+
+    /**
+     * 字符串转换为时间
+     * @param str
+     * @param pattern 字符串模式
+     * @return LocalDateTime
+     * @throws ParseException
+     */
+    public static LocalDateTime strToLocalDateTime(String str, String pattern) {
+        if (pattern == null){
+            pattern = DATETIME_PATTERN;
+        }
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern);
+        return LocalDateTime.parse(str,df);
+    }
+
+    /**
+     * 字符串转换为时间
+     * @param str
+     * @param pattern 字符串模式
+     * @return LocalDateTime
+     * @throws ParseException
+     */
+    public static LocalDate strToLocalDate(String str, String pattern) {
+        if (pattern == null){
+            pattern = DAY_PATTERN;
+        }
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern);
+        return LocalDate.parse(str,df);
+    }
+
+    public static void main(String[] args) {
+        System.out.print(ConvertUtils.strToLocalDateTime("2020-06-10", ConvertUtils.DAY_PATTERN));
     }
 
 }
