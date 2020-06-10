@@ -25,7 +25,11 @@ public class Code {
     private int code;
     private String msg;
 
-    private Code(int code, String msg){
+    public Code(){
+
+    }
+
+    public Code(int code, String msg){
         this.code = code;
         this.msg = msg;
     }
