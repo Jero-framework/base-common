@@ -163,6 +163,16 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
     }
 
     /**
+     * 字符串转换为java8的LocalDate
+     * @param str
+     * @return 转换后的日期
+     * @throws ParseException
+     */
+    public static LocalDate strToLocalDate(String str) throws ParseException{
+        return strToLocalDate(str, null);
+    }
+
+    /**
      * 字符串转换为时间
      * @param str
      * @param pattern 字符串模式

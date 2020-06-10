@@ -75,6 +75,11 @@ public class ConvertUtilsTest {
     }
 
     @Test
+    public void testStrToLocalDateStr() throws Exception {
+        assertEquals(localDate, ConvertUtils.strToLocalDate("2020-06-09"));
+    }
+
+    @Test
     public void testStrToDateForStrPattern() throws Exception {
         assertDoesNotThrow(() -> ConvertUtils.strToDate("2017/08/02 11:22:33", "yyyy/MM/dd HH:mm:ss"));
         assertDoesNotThrow(() -> ConvertUtils.strToDate("2017-08-02 11:22:33", null));
