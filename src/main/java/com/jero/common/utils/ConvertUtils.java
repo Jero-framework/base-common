@@ -177,8 +177,4 @@ public class ConvertUtils extends org.apache.commons.beanutils.ConvertUtils {
         return LocalDate.parse(str,df);
     }
 
-    public static void main(String[] args) {
-        System.out.print(ConvertUtils.strToLocalDateTime("2020-06-10", ConvertUtils.DAY_PATTERN));
-    }
-
 }
