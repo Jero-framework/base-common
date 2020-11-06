@@ -6,11 +6,11 @@ package com.jero.common.exception;
  * @author zer0
  * @version 1.0
  */
-public class SheetNotFindException extends RuntimeException{
+public class SheetNotFindException extends RuntimeException {
 
     private String error;
 
-    public SheetNotFindException(String error){
+    public SheetNotFindException(String error) {
         this.error = error;
     }
 

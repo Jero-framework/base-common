@@ -20,7 +20,7 @@ public class JeroBaseException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public JeroBaseException(Code code){
+    public JeroBaseException(Code code) {
         this(code.getCode(), code.getMsg());
     }
 

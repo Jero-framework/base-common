@@ -6,7 +6,7 @@ package com.jero.common.utils;
  * @author zer0
  * @version 1.0
  */
-public class EnumUtils extends org.apache.commons.lang3.EnumUtils{
+public class EnumUtils extends org.apache.commons.lang3.EnumUtils {
 
     private EnumUtils() {
         throw new IllegalStateException("EnumUtils Utility class");

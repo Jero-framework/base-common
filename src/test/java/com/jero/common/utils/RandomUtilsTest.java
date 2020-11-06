@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RandomUtilsTest {
-    
+
     @Test
     public void testRandomNum() throws Exception {
         String result = RandomUtils.randomNum(0);
@@ -62,5 +62,5 @@ public class RandomUtilsTest {
         assertEquals(6, result3.length());
         assertTrue(m3.matches());
     }
-    
+
 }

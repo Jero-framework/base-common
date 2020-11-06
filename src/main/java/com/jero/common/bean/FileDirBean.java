@@ -15,7 +15,7 @@ public class FileDirBean {
      */
     private String dirName;
 
-    public FileDirBean(String fileName, String dirName){
+    public FileDirBean(String fileName, String dirName) {
         this.fileName = fileName;
         this.dirName = dirName;
     }

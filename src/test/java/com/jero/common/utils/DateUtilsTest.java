@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
-* DateUtils Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>三月 14, 2017</pre> 
-* @version 1.0 
-*/ 
-public class DateUtilsTest { 
+ * DateUtils Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>三月 14, 2017</pre>
+ */
+public class DateUtilsTest {
 
     Date date1;
     Date date2;

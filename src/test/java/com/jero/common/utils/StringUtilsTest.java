@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-/** 
-* StringUtils Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>三月 13, 2017</pre> 
-* @version 1.0 
-*/ 
-public class StringUtilsTest { 
+/**
+ * StringUtils Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>三月 13, 2017</pre>
+ */
+public class StringUtilsTest {
 
     @BeforeEach
     public void before() throws Exception {
@@ -26,7 +26,6 @@ public class StringUtilsTest {
     @AfterEach
     public void after() throws Exception {
     }
-
 
 
     @Test

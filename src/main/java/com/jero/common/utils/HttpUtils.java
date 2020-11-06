@@ -40,15 +40,15 @@ public class HttpUtils {
     }
 
     public static String post(String baseUrl, Map<String, Object> paramMap) {
-        return post(baseUrl, (Map)null, (String)null, (String)null, paramMap, (String)null, false);
+        return post(baseUrl, (Map) null, (String) null, (String) null, paramMap, (String) null, false);
     }
 
     public static String post(String baseUrl, String json) {
-        return post(baseUrl, (Map)null, (String)null, (String)null, (Map)null, json, false);
+        return post(baseUrl, (Map) null, (String) null, (String) null, (Map) null, json, false);
     }
 
     public static String post(String baseUrl, Map<String, String> headers, String json, boolean contentType) {
-        return post(baseUrl, headers, (String)null, (String)null, (Map)null, json, contentType);
+        return post(baseUrl, headers, (String) null, (String) null, (Map) null, json, contentType);
     }
 
     public static String post(String baseUrl, Map<String, String> headerMap, String routekey, String routevalue, Map<String, Object> paramMap, String body, boolean contentType) {
@@ -81,8 +81,8 @@ public class HttpUtils {
 
         if (jsonResponse != null) {
             if (isOKStatusCode(jsonResponse.getStatus())) {
-                log.info((String)jsonResponse.getBody());
-                return (String)jsonResponse.getBody();
+                log.info((String) jsonResponse.getBody());
+                return (String) jsonResponse.getBody();
             } else {
                 log.error("http request failed {}，{}，{}", new Object[]{baseUrl, jsonResponse.getStatus(), jsonResponse.getBody()});
                 return "";
@@ -106,7 +106,7 @@ public class HttpUtils {
     }
 
     public static String post(String baseUrl, Map<String, Object> paramMap, String routeKey, String routeValue) {
-        return post(baseUrl, (String)null, (InputStream)null, (Map)paramMap, (String)routeKey, routeValue);
+        return post(baseUrl, (String) null, (InputStream) null, (Map) paramMap, (String) routeKey, routeValue);
     }
 
     public static String post(String baseUrl, String fileName, InputStream uploadFile, Map<String, Object> paramMap, String routeKey, String routeValue) {
@@ -130,11 +130,11 @@ public class HttpUtils {
     }
 
     public static String put(String baseUrl, Map<String, Object> paramMap) {
-        return put(baseUrl, (Map)null, (String)null, (String)null, paramMap, (String)null);
+        return put(baseUrl, (Map) null, (String) null, (String) null, paramMap, (String) null);
     }
 
     public static String put(String baseUrl, String json) {
-        return put(baseUrl, (Map)null, (String)null, (String)null, (Map)null, json);
+        return put(baseUrl, (Map) null, (String) null, (String) null, (Map) null, json);
     }
 
     public static String put(String baseUrl, Map<String, String> headerMap, String routekey, String routevalue, Map<String, Object> paramMap, String body) {
@@ -161,17 +161,17 @@ public class HttpUtils {
 
             HttpResponse<String> httpResponse = httpRequestWithBody.asString();
             if (isOKStatusCode(httpResponse.getStatus())) {
-                return (String)httpResponse.getBody();
+                return (String) httpResponse.getBody();
             }
         } catch (UnirestException var9) {
             log.error(String.format("http request failed %s %s", baseUrl, response));
         }
 
-        return (String)response;
+        return (String) response;
     }
 
     public static String get(String baseUrl, Map<String, Object> paramMap) {
-        return get(baseUrl, paramMap, (String)null, (String)null);
+        return get(baseUrl, paramMap, (String) null, (String) null);
     }
 
     public static String get(String baseUrl, Map<String, Object> paramMap, String routeKey, String routeValue) {
@@ -191,11 +191,11 @@ public class HttpUtils {
     }
 
     public static String delete(String baseUrl, Map<String, Object> paramMap) {
-        return delete(baseUrl, paramMap, (String)null, (String)null, (String)null);
+        return delete(baseUrl, paramMap, (String) null, (String) null, (String) null);
     }
 
     public static String delete(String baseUrl, String body) {
-        return delete(baseUrl, (Map)null, body, (String)null, (String)null);
+        return delete(baseUrl, (Map) null, body, (String) null, (String) null);
     }
 
     public static String delete(String baseUrl, Map<String, Object> paramMap, String body, String routeKey, String routeValue) {
@@ -224,7 +224,7 @@ public class HttpUtils {
     }
 
     private static boolean isOKStatusCode(int statuscode) {
-        switch(statuscode) {
+        switch (statuscode) {
             case 200:
                 return true;
             case 201:
@@ -241,7 +241,7 @@ public class HttpUtils {
     private static String checkJsonResponse(HttpResponse<String> jsonResponse, String baseUrl) {
         if (jsonResponse != null) {
             if (isOKStatusCode(jsonResponse.getStatus())) {
-                return (String)jsonResponse.getBody();
+                return (String) jsonResponse.getBody();
             } else {
                 log.error("http post request failed {}，{}", baseUrl, jsonResponse.getStatus());
                 return "";

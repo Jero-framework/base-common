@@ -1,5 +1,6 @@
 package com.jero.common.utils;
 
+
 import com.jero.common.bean.FileDirBean;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.Zip64Mode;
@@ -26,12 +27,13 @@ public class ZipUtils {
 
     /**
      * 压缩多个文件
-     * @param files 要压缩的文件列表
+     *
+     * @param files   要压缩的文件列表
      * @param zipPath 压缩文件的保持路径和文件名
      * @return
      */
-    public static String zip(List<String> files, String zipPath){
-        if (files == null || files.size() <= 0){
+    public static String zip(List<String> files, String zipPath) {
+        if (files == null || files.size() <= 0) {
             throw new IllegalArgumentException("将压缩的文件列表不能为空");
         }
         String result = "";
@@ -39,9 +41,9 @@ public class ZipUtils {
         //获取文件数组的父目录
         List<FileDirBean> waitZipFiles = new ArrayList<FileDirBean>();
 
-        for (int i = 0; i < files.size(); i++){
+        for (int i = 0; i < files.size(); i++) {
             File file = new File(files.get(i));
-            if (!file.exists()){
+            if (!file.exists()) {
                 result += "文件\"" + files.get(i) + "\"不存在;\n";
                 continue;
             }
@@ -53,22 +55,24 @@ public class ZipUtils {
             }
         }
         boolean success = compressFileZip(waitZipFiles, zipPath);
-        return result.equals("") ? success ?  "压缩成功" : "压缩失败" : result;
+        return result.equals("") ? success ? "压缩成功" : "压缩失败" : result;
     }
 
     /**
      * 压缩某文件目录
-     * @param dir 要压缩的文件目录
+     *
+     * @param dir     要压缩的文件目录
      * @param zipPath 压缩文件的保持路径和文件名
      * @return
      */
-    public static String zip(String dir, String zipPath){
+    public static String zip(String dir, String zipPath) {
         List<String> files = new ArrayList<String>(Arrays.asList(new String[]{dir}));
         return zip(files, zipPath);
     }
 
     /**
      * 解压缩
+     *
      * @param zipFilePath
      * @param saveFilePath
      */
@@ -139,27 +143,28 @@ public class ZipUtils {
 
     /**
      * 递归获取当前目录的所有文件
+     *
      * @param dir 要遍历的目录
      * @return
      */
-    private static List<String> getFiles(String dir){
+    private static List<String> getFiles(String dir) {
         List<String> lstFiles = null;
-        if(lstFiles == null){
+        if (lstFiles == null) {
             lstFiles = new ArrayList<String>();
         }
         File file = new File(dir);
-        if (file.isDirectory()){
-            File [] files = file.listFiles();
-            for(File f : files){
-                if(f.isDirectory()){
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File f : files) {
+                if (f.isDirectory()) {
                     lstFiles.add(f.getAbsolutePath());
                     lstFiles.addAll(getFiles(f.getAbsolutePath()));
-                }else{
-                    String str =f.getAbsolutePath();
+                } else {
+                    String str = f.getAbsolutePath();
                     lstFiles.add(str);
                 }
             }
-        }else{
+        } else {
             lstFiles.add(dir);
         }
         return lstFiles;
@@ -167,46 +172,47 @@ public class ZipUtils {
 
     /**
      * 压缩文件成zip
+     *
      * @param waitZipFiles 需要压缩的文件
-     * @param zipFilePath 压缩后的路径
+     * @param zipFilePath  压缩后的路径
      * @return
      */
-     private static boolean compressFileZip(List<FileDirBean> waitZipFiles, String zipFilePath){
-        if (waitZipFiles == null || waitZipFiles.size() <= 0){
+    private static boolean compressFileZip(List<FileDirBean> waitZipFiles, String zipFilePath) {
+        if (waitZipFiles == null || waitZipFiles.size() <= 0) {
             return false;
         }
 
-        if (StringUtils.isBlank(zipFilePath)){
+        if (StringUtils.isBlank(zipFilePath)) {
             throw new IllegalArgumentException("压缩文件名不能为空");
         }
 
         ZipArchiveOutputStream zaos = null;
-        try{
+        try {
             File zipFile = new File(zipFilePath);
             zaos = new ZipArchiveOutputStream(zipFile);
             zaos.setUseZip64(Zip64Mode.AsNeeded);
-            for(int i=0; i < waitZipFiles.size(); i++){
+            for (int i = 0; i < waitZipFiles.size(); i++) {
                 File file = new File(waitZipFiles.get(i).getFileName());
-                if(file != null){
-                    String name = getFilePathName(waitZipFiles.get(i).getDirName() ,waitZipFiles.get(i).getFileName());
+                if (file != null) {
+                    String name = getFilePathName(waitZipFiles.get(i).getDirName(), waitZipFiles.get(i).getFileName());
                     ZipArchiveEntry zipArchiveEntry = new ZipArchiveEntry(file, name);
                     zaos.putArchiveEntry(zipArchiveEntry);
-                    if (file.isDirectory()){
+                    if (file.isDirectory()) {
                         continue;
                     }
                     InputStream is = null;
-                    try{
+                    try {
                         is = new BufferedInputStream(new FileInputStream(file));
                         byte[] buffer = new byte[1024];
                         int len = -1;
-                        while ((len = is.read(buffer)) != -1){
+                        while ((len = is.read(buffer)) != -1) {
                             zaos.write(buffer, 0, len);
                         }
                         zaos.closeArchiveEntry();
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
-                    }finally {
-                        if (is != null){
+                    } finally {
+                        if (is != null) {
                             is.close();
                         }
                     }
@@ -214,12 +220,12 @@ public class ZipUtils {
             }
             zaos.finish();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             try {
-                if(zaos != null) {
+                if (zaos != null) {
                     zaos.close();
                 }
             } catch (IOException e) {
@@ -228,15 +234,15 @@ public class ZipUtils {
         }
     }
 
-    private static String getFilePathName(String dir,String path){
+    private static String getFilePathName(String dir, String path) {
         dir = FileUtils.uniformSeparator(dir);
         path = FileUtils.uniformSeparator(path);
 
         String p = "";
-        if (dir.endsWith("/")){
+        if (dir.endsWith("/")) {
             p = path.replace(dir, "");
-        }else{
-            p = path.replace(dir+ "/", "");
+        } else {
+            p = path.replace(dir + "/", "");
         }
 
         p = p.replace("\\", "/");

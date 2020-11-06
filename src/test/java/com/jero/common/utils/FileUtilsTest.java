@@ -17,49 +17,49 @@ public class FileUtilsTest {
     private String fileName = "test.pdf";
 
     @Test
-    public void testGetExtendFileNameBlank(){
+    public void testGetExtendFileNameBlank() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getExtend(""));
     }
 
     @Test
-    public void testGetExtendFileNameNull(){
+    public void testGetExtendFileNameNull() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getExtend(null));
     }
 
     @Test
-    public void testGetExtend(){
+    public void testGetExtend() {
         assertEquals("pdf", FileUtils.getExtend(fileName));
         assertEquals("xls", FileUtils.getExtend(path));
     }
 
     @Test
-    public void testGetFileNameBlank(){
+    public void testGetFileNameBlank() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getExtend(null));
     }
 
     @Test
-    public void testGetFileNameNull(){
+    public void testGetFileNameNull() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getExtend(null));
     }
 
     @Test
-    public void testGetFileName(){
+    public void testGetFileName() {
         assertEquals("test", FileUtils.getFileName(fileName));
         assertEquals("test", FileUtils.getFileName("te st.jpg"));
     }
 
     @Test
-    public void testGetFileNameFromPathBlank(){
+    public void testGetFileNameFromPathBlank() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getFileNameFromPath(""));
     }
 
     @Test
-    public void testGetFileNameFromPathNull(){
+    public void testGetFileNameFromPathNull() {
         assertThrows(IllegalArgumentException.class, () -> FileUtils.getFileNameFromPath(null));
     }
 
     @Test
-    public void testGetFileNameFromPath(){
+    public void testGetFileNameFromPath() {
         assertEquals("excel.xls", FileUtils.getFileNameFromPath(path));
         assertEquals("1.pdf", FileUtils.getFileNameFromPath("http://a.com\\2\\1.pdf"));
     }

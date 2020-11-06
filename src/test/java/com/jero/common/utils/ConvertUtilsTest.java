@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
-* ConvertUtils Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>三月 16, 2017</pre> 
-* @version 1.0 
-*/ 
+ * ConvertUtils Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>三月 16, 2017</pre>
+ */
 public class ConvertUtilsTest {
 
     Date date;
@@ -28,7 +28,7 @@ public class ConvertUtilsTest {
 
     @BeforeEach
     public void before() throws Exception {
-        date = new Date(2017-1900, 8-1, 2, 11, 22, 33);
+        date = new Date(2017 - 1900, 8 - 1, 2, 11, 22, 33);
         localDateTime = LocalDateTime.of(2020, 6, 10, 22, 13, 55);
         localDate = LocalDate.of(2020,6,9);
     }
@@ -58,7 +58,7 @@ public class ConvertUtilsTest {
     }
 
     @Test
-    public void testFormatStrFromDateByPattern() throws Exception{
+    public void testFormatStrFromDateByPattern() throws Exception {
         assertEquals("2017-08-02 11:22:33", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DATETIME_PATTERN));
         assertEquals("2017-08-02", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DAY_PATTERN));
         assertEquals("2017-08-02 11:22:33.000", ConvertUtils.formatStrFromDateByPattern(date, ConvertUtils.DATETIME_MS_PATTERN));

@@ -15,24 +15,24 @@ public class PropertiesUtils {
 
     Properties properties = new Properties();
 
-    public PropertiesUtils(String fileName){
+    public PropertiesUtils(String fileName) {
         InputStream is = null;
         try {
             is = PropertiesUtils.class.getClassLoader().getResourceAsStream(fileName);
             properties.load(is);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 is.close();
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String readProperty(String key){
-        if (key == null || properties.getProperty(key) == null){
+    public String readProperty(String key) {
+        if (key == null || properties.getProperty(key) == null) {
             throw new NoSuchElementException();
         }
         String value = properties.getProperty(key);

@@ -6,11 +6,11 @@ package com.jero.common.exception;
  * @author zer0
  * @version 1.0
  */
-public class UnsupportFileTypeException extends Exception{
+public class UnsupportFileTypeException extends Exception {
 
     private String error;
 
-    public UnsupportFileTypeException(String error){
+    public UnsupportFileTypeException(String error) {
         this.error = error;
     }
 

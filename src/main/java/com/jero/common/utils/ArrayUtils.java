@@ -12,7 +12,7 @@ import java.util.List;
  * @author zer0
  * @version 1.0
  */
-public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
+public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
     private ArrayUtils() {
         throw new IllegalStateException("ArrayUtils Utility class");
@@ -20,6 +20,7 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
     /**
      * 列表转字符串，"逗号"分隔
+     *
      * @param stringList 转string的列表
      * @return 逗号分隔的字符串
      */
@@ -41,6 +42,7 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
     /**
      * 字符串转列表，逗号分割
+     *
      * @param string 待分割字符串
      * @return 分割完成的字符串，组装成列表
      */
@@ -54,8 +56,9 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
     /**
      * 字符串转列表
+     *
      * @param string 待分割字符串
-     * @param split 分割符
+     * @param split  分割符
      * @return 分割完成的字符串，组装成列表
      */
     public static List<String> stringToList(String string, String split) {
@@ -68,6 +71,7 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
     /**
      * 数字字符串转列表，默认逗号分割
+     *
      * @param string 待分割数字字符串
      * @return 分割完成的整数，组装成列表
      */
@@ -81,8 +85,9 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 
     /**
      * 数字字符串转列表
+     *
      * @param string 待分割数字字符串
-     * @param split 分割符
+     * @param split  分割符
      * @return 分割完成的整数，组装成列表
      */
     public static List<Integer> stringToIntList(String string, String split) {
